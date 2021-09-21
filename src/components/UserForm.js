@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Form, } from "semantic-ui-react";
+import { UserContext } from "../providers/UserProvider";
 
 const UserForm  = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
+  const { firstName, lastName, email, updateUser} = useContext(UserContext)
+
+  const [formFirstName, setFormFirstName] = useState(firstName);
+  const [formLastName, setFormLastName] = useState(lastName);
+  const [formEmail, setFormEmail] = useState(email);
   // state = { username: "", membershipLevel: "", };
-  
   
   const handleSubmit = (e) => {
     e.preventDefault();
+    updateUser({firstName: formFirstName, lastName: formLastName, email: formEmail})
   }
   
     return (
@@ -19,22 +22,22 @@ const UserForm  = () => {
          label="First Name"
           type="text"
           name="username"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
+          value={formFirstName}
+          onChange={(e) => setFormFirstName(e.target.value)}
         />
         <Form.Input 
           label="Last Name"
           type="text"
           name="username"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
+          value={formLastName}
+          onChange={(e) => setFormLastName(e.target.value)}
         />
         <Form.Input
           label="Email"
           type="text"
           name="username"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={formEmail}
+          onChange={(e) => setFormEmail(e.target.value)}
         />
       </Form.Group>
       <Form.Button color="green">Save</Form.Button>
