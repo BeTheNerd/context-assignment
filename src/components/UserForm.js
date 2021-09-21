@@ -16,15 +16,16 @@ const UserForm  = () => {
   }
   
     return (
-      <Form onSubmit={handleSubmit}>
-        <Form.Input
-          label="First Name"
+    <Form>
+      <Form.Group onSubmit={handleSubmit}>
+        <Form.Input 
+         label="First Name"
           type="text"
           name="username"
           value={formFirstName}
           onChange={(e) => setFormFirstName(e.target.value)}
         />
-        <Form.Input
+        <Form.Input 
           label="Last Name"
           type="text"
           name="username"
@@ -38,7 +39,8 @@ const UserForm  = () => {
           value={formEmail}
           onChange={(e) => setFormEmail(e.target.value)}
         />
-        <Form.Button color="blue">Save</Form.Button>
+      </Form.Group>
+      <Form.Button color="green">Save</Form.Button>
       </Form>
     );
   
