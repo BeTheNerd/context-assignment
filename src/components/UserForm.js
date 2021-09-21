@@ -1,31 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, } from "semantic-ui-react";
 
-class UserForm extends React.Component {
-  state = { username: "", membershipLevel: "", };
+const UserForm  = () => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  // state = { username: "", membershipLevel: "", };
   
-  handleChange = (e, { name, value }) => this.setState({ [name]: value, });
   
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
   }
   
-  render() {
-    const { username, membershipLevel, } = this.state;
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <Form.Input
-          label="New Username"
+          label="First Name"
           type="text"
           name="username"
-          value={username}
-          onChange={this.handleChange}
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+        <Form.Input
+          label="Last Name"
+          type="text"
+          name="username"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+        />
+        <Form.Input
+          label="Email"
+          type="text"
+          name="username"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <Form.Button color="blue">Save</Form.Button>
       </Form>
-    )
-  }
-}
+    );
+  
+};
 
 
 
