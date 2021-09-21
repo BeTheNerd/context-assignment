@@ -16,8 +16,8 @@ const UserForm  = () => {
   }
   
     return (
-    <Form>
-      <Form.Group onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
+      <Form.Group>
         <Form.Input 
          label="First Name"
           type="text"
