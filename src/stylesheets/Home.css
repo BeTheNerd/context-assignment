@@ -1,0 +1,33 @@
+
+.homeWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.group-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.tom-card {
+    display: flex;
+    animation: appear 2s;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0%;
+        margin-top: 400px;
+    }
+
+    to {
+        opacity: 100%;
+        margin-top: 12x;
+    }
+}
